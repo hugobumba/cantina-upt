@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Ementa semanal</title>
+        <meta charset="utf-8">
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='img/favicon.ico') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel= "stylesheet" type="text/css" href= "{{ url_for('static',filename='css/style.css') }}">
+    </head>
+    <body>
+        <section class="ftco-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-12 col-lg-10">
+                        <div class="wrap d-md-flex">
+                            <div class="w-100 login-wrap p-4 p-md-5">
+                                <div class="d-flex">
+                                    <div class="w-100">
+                                        <h3 class="mb-4">Ementa semanal</h3>
+                                    </div>
+                                    <div class="w-100">
+                                        <p class="social-media d-flex justify-content-end">
+                                            <img class="rounded-circle shadow-4-strong" width="40px" src="{{url_for('static', filename='img/upt-logo.png')}}">
+                                        </p>
+                                    </div>
+                                </div>
+                                <table class="table table-bordered text-center">
+                                    <thead>
+                                        <tr>
+                                            {% for row in myresult %}
+                                                <th>{{row[0]}}ª feira</th>
+                                            {% endfor %}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            {% for row in myresult %}
+                                                <td>Carne:<br><b>{{row[1]}}</b></td>
+                                            {% endfor %}
+                                        </tr>
+                                        <tr>
+                                            {% for row in myresult %}
+                                                <td>Peixe:<br><b>{{row[2]}}</b></td>
+                                            {% endfor %}
+                                        </tr>
+                                        <tr>
+                                            {% for row in myresult %}
+                                                <td>Vegetariano:<br><b>{{row[3]}}</b></td>
+                                            {% endfor %}
+                                        </tr>
+                                        <tr>
+                                            {% for row in myresult %}
+                                                <td>Sopa:<br><b>{{row[4]}}</b></td>
+                                            {% endfor %}
+                                        </tr>
+                                        <tr>
+                                            {% for row in myresult %}
+                                                <td>Sobremesa:<br><b>{{row[5]}}</b></td>
+                                            {% endfor %}
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <a href="{{ url_for('home') }}">Voltar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/popper.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    </body>
+</html>

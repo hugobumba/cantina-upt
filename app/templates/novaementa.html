@@ -1,0 +1,354 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Nova ementa</title>
+        <meta charset="utf-8">
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='img/favicon.ico') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel= "stylesheet" type="text/css" href= "{{ url_for('static',filename='css/style.css') }}">
+    </head>
+    <body>
+        <section class="ftco-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-12 col-lg-10">
+                        <div class="wrap d-md-flex">
+                            <div class="w-100 login-wrap p-4 p-md-5">
+                                <div class="d-flex">
+                                    <div class="w-100">
+                                        <h3 class="mb-4">Nova Ementa</h3>
+                                    </div>
+                                    <div class="w-100">
+                                        <p class="social-media d-flex justify-content-end">
+                                            <img class="rounded-circle shadow-4-strong" width="40px" src="{{url_for('static', filename='img/upt-logo.png')}}">
+                                        </p>
+                                    </div>
+                                </div>
+                                <form action="/addementa" method="post" class="signin-form">
+                                    <label class="label" >2ª feira</label>
+                                    <div class="d-flex form-group mb-3">
+                                        <select class="form-control" id="selectcarne2" name="selectcarne2">
+                                            <option>--Carne--</option>
+                                            {%for row in rcarne%}
+                                            <option value={{row[0]}}>{{row[1]}}</option>
+                                            {%endfor%}
+                                        </select>
+                                        <select class="form-control" id="selectpeixe2" name="selectpeixe2">
+                                            <option>--Peixe--</option>
+                                            <option value=1>Lulas</option>
+                                            <option value=2>Bacalhau</option>
+                                            <option value=3>Robalo</option>
+                                            <option value=4>Arroz de marisco</option>
+                                            <option value=5>Garoupa</option>
+                                            <option value=6>Polvo</option>
+                                            <option value=7>Caldeirada de peixe</option>
+                                            <option value=8>Sardinha assada</option>
+                                            <option value=9>Filete de espada</option>
+                                            <option value=10>Pescada</option>
+                                        </select>
+                                        <select class="form-control" id="selectvegan2" name="selectvegan2">
+                                            <option>--Vegetariano--</option>
+                                            <option value=1>Pizza de cogumelos</option>
+                                            <option value=2>Arroz integral</option>
+                                            <option value=3>Torta de alho</option>
+                                            <option value=4>Pataniscas de alho</option>
+                                            <option value=5>Salteado de feijão</option>
+                                            <option value=6>Salada salteada</option>
+                                            <option value=7>Francesinha vegan</option>
+                                            <option value=8>Cozido vegetariano</option>
+                                            <option value=9>Arroz sem pato</option>
+                                            <option value=10>Alhada de tofu</option>
+                                        </select>
+                                        <select class="form-control" id="selectsopa2" name="selectsopa2">
+                                            <option>--Sopa--</option>
+                                            <option value=1>Legumes</option>
+                                            <option value=2>Cenoura</option>
+                                            <option value=3>Espinafre</option>
+                                            <option value=4>Batata</option>
+                                            <option value=5>Massa</option>
+                                            <option value=6>Abóbora</option>
+                                            <option value=7>Arroz</option>
+                                            <option value=8>Feijão</option>
+                                            <option value=9>Tomate</option>
+                                            <option value=10>Creme</option>
+                                        </select>
+                                        <select class="form-control" id="selectsobremesa2" name="selectsobremesa2">
+                                            <option>--Sobremesa--</option>
+                                            <option value=1>Mousse de limão</option>
+                                            <option value=2>Fruta</option>
+                                            <option value=3>Gelatina</option>
+                                            <option value=4>Bolo de chocolate</option>
+                                            <option value=5>Arroz doce</option>
+                                            <option value=6>Aletria</option>
+                                            <option value=7>Pudim</option>
+                                            <option value=8>Mousse de chocolate</option>
+                                            <option value=9>Bolo de Cenoura</option>
+                                            <option value=10>Doce de leite</option>
+                                        </select>
+                                    </div>
+                                    <label class="label" >3ª feira</label>
+                                    <div class="d-flex form-group mb-3">
+                                        <select class="form-control" id="selectcarne3" name="selectcarne3">
+                                            <option>--Carne--</option>
+                                            {%for row in rcarne%}
+                                            <option value={{row[0]}}>{{row[1]}}</option>
+                                            {%endfor%}
+                                        </select>
+                                        <select class="form-control" id="selectpeixe3" name="selectpeixe3">
+                                            <option>--Peixe--</option>
+                                            <option value=1>Lulas</option>
+                                            <option value=2>Bacalhau</option>
+                                            <option value=3>Robalo</option>
+                                            <option value=4>Arroz de marisco</option>
+                                            <option value=5>Garoupa</option>
+                                            <option value=6>Polvo</option>
+                                            <option value=7>Caldeirada de peixe</option>
+                                            <option value=8>Sardinha assada</option>
+                                            <option value=9>Filete de espada</option>
+                                            <option value=10>Pescada</option>
+                                        </select>
+                                        <select class="form-control" id="selectvegan3" name="selectvegan3">
+                                            <option>--Vegetariano--</option>
+                                            <option value=1>Pizza de cogumelos</option>
+                                            <option value=2>Arroz integral</option>
+                                            <option value=3>Torta de alho</option>
+                                            <option value=4>Pataniscas de alho</option>
+                                            <option value=5>Salteado de feijão</option>
+                                            <option value=6>Salada salteada</option>
+                                            <option value=7>Francesinha vegan</option>
+                                            <option value=8>Cozido vegetariano</option>
+                                            <option value=9>Arroz sem pato</option>
+                                            <option value=10>Alhada de tofu</option>
+                                        </select>
+                                        <select class="form-control" id="selectsopa3" name="selectsopa3">
+                                            <option>--Sopa--</option>
+                                            <option value=1>Legumes</option>
+                                            <option value=2>Cenoura</option>
+                                            <option value=3>Espinafre</option>
+                                            <option value=4>Batata</option>
+                                            <option value=5>Massa</option>
+                                            <option value=6>Abóbora</option>
+                                            <option value=7>Arroz</option>
+                                            <option value=8>Feijão</option>
+                                            <option value=9>Tomate</option>
+                                            <option value=10>Creme</option>
+                                        </select>
+                                        <select class="form-control" id="selectsobremesa3" name="selectsobremesa3">
+                                            <option>--Sobremesa--</option>
+                                            <option value=1>Mousse de limão</option>
+                                            <option value=2>Fruta</option>
+                                            <option value=3>Gelatina</option>
+                                            <option value=4>Bolo de chocolate</option>
+                                            <option value=5>Arroz doce</option>
+                                            <option value=6>Aletria</option>
+                                            <option value=7>Pudim</option>
+                                            <option value=8>Mousse de chocolate</option>
+                                            <option value=9>Bolo de Cenoura</option>
+                                            <option value=10>Doce de leite</option>
+                                        </select>
+                                    </div>
+
+                                    <label class="label" >4ª feira</label>
+                                    <div class="d-flex form-group mb-3">
+                                        <select class="form-control" id="selectcarne4" name="selectcarne4">
+                                            <option>--Carne--</option>
+                                            {%for row in rcarne%}
+                                            <option value={{row[0]}}>{{row[1]}}</option>
+                                            {%endfor%}
+                                        </select>
+                                        <select class="form-control" id="selectpeixe4" name="selectpeixe4">
+                                            <option>--Peixe--</option>
+                                            <option value=1>Lulas</option>
+                                            <option value=2>Bacalhau</option>
+                                            <option value=3>Robalo</option>
+                                            <option value=4>Arroz de marisco</option>
+                                            <option value=5>Garoupa</option>
+                                            <option value=6>Polvo</option>
+                                            <option value=7>Caldeirada de peixe</option>
+                                            <option value=8>Sardinha assada</option>
+                                            <option value=9>Filete de espada</option>
+                                            <option value=10>Pescada</option>
+                                        </select>
+                                        <select class="form-control" id="selectvegan4" name="selectvegan4">
+                                            <option>--Vegetariano--</option>
+                                            <option value=1>Pizza de cogumelos</option>
+                                            <option value=2>Arroz integral</option>
+                                            <option value=3>Torta de alho</option>
+                                            <option value=4>Pataniscas de alho</option>
+                                            <option value=5>Salteado de feijão</option>
+                                            <option value=6>Salada salteada</option>
+                                            <option value=7>Francesinha vegan</option>
+                                            <option value=8>Cozido vegetariano</option>
+                                            <option value=9>Arroz sem pato</option>
+                                            <option value=10>Alhada de tofu</option>
+                                        </select>
+                                        <select class="form-control" id="selectsopa4" name="selectsopa4">
+                                            <option>--Sopa--</option>
+                                            <option value=1>Legumes</option>
+                                            <option value=2>Cenoura</option>
+                                            <option value=3>Espinafre</option>
+                                            <option value=4>Batata</option>
+                                            <option value=5>Massa</option>
+                                            <option value=6>Abóbora</option>
+                                            <option value=7>Arroz</option>
+                                            <option value=8>Feijão</option>
+                                            <option value=9>Tomate</option>
+                                            <option value=10>Creme</option>
+                                        </select>
+                                        <select class="form-control" id="selectsobremesa4" name="selectsobremesa4">
+                                            <option>--Sobremesa--</option>
+                                            <option value=1>Mousse de limão</option>
+                                            <option value=2>Fruta</option>
+                                            <option value=3>Gelatina</option>
+                                            <option value=4>Bolo de chocolate</option>
+                                            <option value=5>Arroz doce</option>
+                                            <option value=6>Aletria</option>
+                                            <option value=7>Pudim</option>
+                                            <option value=8>Mousse de chocolate</option>
+                                            <option value=9>Bolo de Cenoura</option>
+                                            <option value=10>Doce de leite</option>
+                                        </select>
+                                    </div>
+
+                                    <label class="label" >5ª feira</label>
+                                    <div class="d-flex form-group mb-3">
+                                        <select class="form-control" id="selectcarne5" name="selectcarne5">
+                                            <option>--Carne--</option>
+                                            {%for row in rcarne%}
+                                            <option value={{row[0]}}>{{row[1]}}</option>
+                                            {%endfor%}
+                                        </select>
+                                        <select class="form-control" id="selectpeixe5" name="selectpeixe5">
+                                            <option>--Peixe--</option>
+                                            <option value=1>Lulas</option>
+                                            <option value=2>Bacalhau</option>
+                                            <option value=3>Robalo</option>
+                                            <option value=4>Arroz de marisco</option>
+                                            <option value=5>Garoupa</option>
+                                            <option value=6>Polvo</option>
+                                            <option value=7>Caldeirada de peixe</option>
+                                            <option value=8>Sardinha assada</option>
+                                            <option value=9>Filete de espada</option>
+                                            <option value=10>Pescada</option>
+                                        </select>
+                                        <select class="form-control" id="selectvegan5" name="selectvegan5">
+                                            <option>--Vegetariano--</option>
+                                            <option value=1>Pizza de cogumelos</option>
+                                            <option value=2>Arroz integral</option>
+                                            <option value=3>Torta de alho</option>
+                                            <option value=4>Pataniscas de alho</option>
+                                            <option value=5>Salteado de feijão</option>
+                                            <option value=6>Salada salteada</option>
+                                            <option value=7>Francesinha vegan</option>
+                                            <option value=8>Cozido vegetariano</option>
+                                            <option value=9>Arroz sem pato</option>
+                                            <option value=10>Alhada de tofu</option>
+                                        </select>
+                                        <select class="form-control" id="selectsopa5" name="selectsopa5">
+                                            <option>--Sopa--</option>
+                                            <option value=1>Legumes</option>
+                                            <option value=2>Cenoura</option>
+                                            <option value=3>Espinafre</option>
+                                            <option value=4>Batata</option>
+                                            <option value=5>Massa</option>
+                                            <option value=6>Abóbora</option>
+                                            <option value=7>Arroz</option>
+                                            <option value=8>Feijão</option>
+                                            <option value=9>Tomate</option>
+                                            <option value=10>Creme</option>
+                                        </select>
+                                        <select class="form-control" id="selectsobremesa5" name="selectsobremesa5">
+                                            <option>--Sobremesa--</option>
+                                            <option value=1>Mousse de limão</option>
+                                            <option value=2>Fruta</option>
+                                            <option value=3>Gelatina</option>
+                                            <option value=4>Bolo de chocolate</option>
+                                            <option value=5>Arroz doce</option>
+                                            <option value=6>Aletria</option>
+                                            <option value=7>Pudim</option>
+                                            <option value=8>Mousse de chocolate</option>
+                                            <option value=9>Bolo de Cenoura</option>
+                                            <option value=10>Doce de leite</option>
+                                        </select>
+                                    </div>
+
+                                    <label class="label" >6ª feira</label>
+                                    <div class="d-flex form-group mb-3">
+                                        <select class="form-control" id="selectcarne6" name="selectcarne6">
+                                            <option>--Carne--</option>
+                                            {%for row in rcarne%}
+                                            <option value={{row[0]}}>{{row[1]}}</option>
+                                            {%endfor%}
+                                        </select>
+                                        <select class="form-control" id="selectpeixe6" name="selectpeixe6">
+                                            <option>--Peixe--</option>
+                                            <option value=1>Lulas</option>
+                                            <option value=2>Bacalhau</option>
+                                            <option value=3>Robalo</option>
+                                            <option value=4>Arroz de marisco</option>
+                                            <option value=5>Garoupa</option>
+                                            <option value=6>Polvo</option>
+                                            <option value=7>Caldeirada de peixe</option>
+                                            <option value=8>Sardinha assada</option>
+                                            <option value=9>Filete de espada</option>
+                                            <option value=10>Pescada</option>
+                                        </select>
+                                        <select class="form-control" id="selectvegan6" name="selectvegan6">
+                                            <option>--Vegetariano--</option>
+                                            <option value=1>Pizza de cogumelos</option>
+                                            <option value=2>Arroz integral</option>
+                                            <option value=3>Torta de alho</option>
+                                            <option value=4>Pataniscas de alho</option>
+                                            <option value=5>Salteado de feijão</option>
+                                            <option value=6>Salada salteada</option>
+                                            <option value=7>Francesinha vegan</option>
+                                            <option value=8>Cozido vegetariano</option>
+                                            <option value=9>Arroz sem pato</option>
+                                            <option value=10>Alhada de tofu</option>
+                                        </select>
+                                        <select class="form-control" id="selectsopa6" name="selectsopa6">
+                                            <option>--Sopa--</option>
+                                            <option value=1>Legumes</option>
+                                            <option value=2>Cenoura</option>
+                                            <option value=3>Espinafre</option>
+                                            <option value=4>Batata</option>
+                                            <option value=5>Massa</option>
+                                            <option value=6>Abóbora</option>
+                                            <option value=7>Arroz</option>
+                                            <option value=8>Feijão</option>
+                                            <option value=9>Tomate</option>
+                                            <option value=10>Creme</option>
+                                        </select>
+                                        <select class="form-control" id="selectsobremesa6" name="selectsobremesa6">
+                                            <option>--Sobremesa--</option>
+                                            <option value=1>Mousse de limão</option>
+                                            <option value=2>Fruta</option>
+                                            <option value=3>Gelatina</option>
+                                            <option value=4>Bolo de chocolate</option>
+                                            <option value=5>Arroz doce</option>
+                                            <option value=6>Aletria</option>
+                                            <option value=7>Pudim</option>
+                                            <option value=8>Mousse de chocolate</option>
+                                            <option value=9>Bolo de Cenoura</option>
+                                            <option value=10>Doce de leite</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="form-control btn btn-primary rounded submit px-3">Criar Ementa</button>
+                                    </div>
+                                </form>
+                                <a href="{{ url_for('home') }}">Voltar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/popper.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    </body>
+</html>

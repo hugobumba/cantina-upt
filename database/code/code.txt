@@ -1,0 +1,125 @@
+CREATE TABLE utilizadores (
+    numero int PRIMARY KEY,
+    nome varchar(20),
+    tipo varchar(15),
+    password varchar(20),
+    saldo float
+);
+
+CREATE TABLE ementas (
+    dia int PRIMARY KEY,
+    sopa varchar(20),
+    prato varchar(100),
+    bebida varchar(30),
+    sobremesa varchar(20)
+);
+
+CREATE TABLE escolhas (
+    id int PRIMARY KEY,
+    dia int NOT NULL,
+    numero int NOT NULL,
+    sopa boolean,
+    prato int,
+    bebida int,
+    sobremesa boolean,
+    FOREIGN KEY (dia) REFERENCES ementas(dia),
+    FOREIGN KEY (numero) REFERENCES utilizadores(numero)
+);
+
+INSERT INTO utilizadores (numero, nome, tipo, password, saldo)
+VALUES (40358, "Hugo Elias", "Aluno", "1234", 30.0),
+(43544, "Vasco Edgar", "Aluno", "1234", 30.0),
+(12029, "Func1", "Funcionário", "1234", 0.0),
+(22476, "Func2", "Funcionário", "1234", 0.0);
+
+INSERT INTO ementas (dia, sopa, prato, bebida, sobremesa)
+VALUE (2, "Sopa0/1", "Prato1/2/3/4", "Sobremesa0/1/2", "Bebida2"),
+(3, "Sopa0/1", "Prato1/2/3/4", "Sobremesa0/1/2", "Bebida0/1/2"),
+(4, "Sopa0/1", "Prato1/2/3/4", "Sobremesa0/1/2", "Bebida0/1/2"),
+(5, "Sopa0/1", "Prato1/2/3/4", "Sobremesa0/1/2", "Bebida0/1/2"),
+(6, "Sopa0/1", "Prato1/2/3/4", "Sobremesa0/1/2", "Bebida0/1/2");
+
+INSERT INTO escolhas(id, dia, numero, sopa, prato, bebida, sobremesa)
+VALUES(1, 2, 40358, 1, 1, 1 ,1), 
+(2, 3, 40358, 0, 4, 2, 0);
+
+
+------------------------------------------------------------------------------------------
+
+
+USE cantina;
+
+CREATE TABLE utilizadores (
+numero int NOT NULL PRIMARY KEY,
+nome varchar(20) NOT NULL,
+tipo varchar(15) NOT NULL,
+saldo float NOT NULL
+);
+
+CREATE TABLE carnes (
+id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nome varchar(50) NOT NULL
+);
+
+CREATE TABLE peixes (
+id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nome varchar(50) NOT NULL
+);
+
+CREATE TABLE vegetarianos (
+id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nome varchar(50) NOT NULL
+);
+
+CREATE TABLE sopas (
+id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nome varchar(50) NOT NULL
+);
+
+CREATE TABLE sobremesas (
+id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nome varchar(50) NOT NULL
+);
+
+CREATE TABLE ementas (
+dia int NOT NULL PRIMARY KEY,
+carne int NOT NULL,
+peixe int NOT NULL,
+vegetariano int NOT NULL,
+sopa int NOT NULL,
+sobremesa int NOT NULL,
+FOREIGN KEY (carne) REFERENCES carnes(id),
+FOREIGN KEY (peixe) REFERENCES peixes(id),
+FOREIGN KEY (vegetariano) REFERENCES vegetarianos(id),
+FOREIGN KEY (sopa) REFERENCES sopas(id),
+FOREIGN KEY (sobremesa) REFERENCES sobremesas(id)
+);
+
+CREATE TABLE escolhas (
+id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+numero int NOT NULL,
+dia int NOT NULL,
+prato int NOT NULL,
+sopa int NOT NULL,
+bebida int NOT NULL,
+sobremesa int NOT NULL,
+FOREIGN KEY (numero) REFERENCES utilizadores(numero),
+FOREIGN KEY (sopa) REFERENCES sopas(id),
+FOREIGN KEY (sobremesa) REFERENCES sobremesas(id)
+);
+
+INSERT INTO utilizadores (numero, nome, tipo, saldo) VALUES (40358, "Hugo Elias", "Aluno", 30.0), (43544, "Vasco Edgar", "Aluno", 30.0), (12029, "Func1", "Funcionário", 0.0), (22476, "Func2", "Funcionário", 0.0);
+
+INSERT INTO carnes(nome) VALUES('Francesinha'), ('Entremeada grelhada'), ('Frango'), ('Bife'), ('Borrego assado'), ('Rojões'), ('Lombo assado'), ('Arroz de pato'), ('Cabidela'), ('Cabrito no forno');
+
+INSERT INTO peixes(nome) VALUES('Lulas'), ('Bacalhau'), ('Robalo'), ('Arroz de marisco'), ('Garoupa'), ('Polvo'), ('Caldeirada de peixe'), ('Sardinha assada'), ('Filete de espada'), ('Pescada');
+
+INSERT INTO vegetarianos(nome) VALUES('Pizza de cogumelos'), ('Arroz integral'), ('Torta de alho'), ('Pataniscas de alho'), ('Salteado de feijão'), ('Salada salteada'), ('Francesinha vegan'), ('Cozido vegetariano'), ('Arroz sem pato'), ('Alhada de tofu');
+
+INSERT INTO sopas(nome) VALUES('Legumes'), ('Cenoura'), ('Espinafre'), ('Batata'), ('Massa'), ('Abóbora'), ('Arroz'), ('Feijão'), ('Tomate'), ('Creme');
+
+INSERT INTO sobremesas(nome) VALUES('Mousse de limão'), ('Fruta'), ('Gelatina'), ('Bolo de chocolate'), ('Arroz doce'), ('Aletria'), ('Pudim'), ('Mousse de chocolate'), ('Bolo de Cenoura'), ('Doce de leite');
+
+INSERT INTO ementas(dia, carne, peixe, vegetariano, sopa, sobremesa) VALUES(2, 2, 2, 2, 2, 2), (3, 3, 3, 3, 3, 3), (4, 4, 4, 4, 4, 4), (5, 5, 5, 5, 5, 5), (6, 6, 6, 6, 6, 6);
+
+INSERT INTO escolhas(numero, dia, prato, sopa, bebida, sobremesa) VALUES(40358, 2, 1, 1, 2, 1), (43544, 3, 2, 0, 1, 0);
